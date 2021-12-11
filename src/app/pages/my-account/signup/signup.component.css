@@ -1,0 +1,36 @@
+.breadcrumb {
+    margin-top: 2em;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.bi-house-door-fill {
+    position: relative;
+    top: -3px;
+}
+
+textarea:focus, input:focus, input[type]:focus {
+    border-color: rgb(173, 173, 173);
+    box-shadow: 0 1px 1px rgba(85, 85, 85, 0.075)inset;
+    outline: 0 none;
+}
+
+.card {
+    margin-top: 2em;
+    padding: 1em;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+hr {
+    opacity: 1;
+}
+
+.input-group-text {
+    background-color: #E5E5E5;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}

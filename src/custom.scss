@@ -1,0 +1,17 @@
+$primary: #d33d2c;
+$secondary: #ad3629;
+$success: #1c851c;
+$info: #1a8fbd;
+$dark: #818181;
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary":  $secondary,
+  "success": $success,
+  "info":      $info,
+  "dark":      $dark
+);
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+@import "../node_modules/bootstrap/scss/bootstrap";

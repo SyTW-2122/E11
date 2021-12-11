@@ -1,0 +1,97 @@
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" fill="#818181" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+            </svg><a href="#" class="text-decoration-none text-dark" routerLink='/'> Inicio</a></li>
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-dark" routerLink='/mi-cuenta'> Mi cuenta</a></li>
+            <li class="breadcrumb-item active text-black" aria-current="page"> Crear cuenta</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <h1 class="card-title text-center text-primary mb-4">Regístrate en Universo Animal</h1>
+                    <p class="card-text text-center bold">Rellene el siguiente formulario para crear una cuenta en <span class="text-primary"><b>Universo Animal</b></span></p>
+                    <p class="card-text text-end mt-4">Los campos marcados con <span class="text-danger bold">*</span> son obligatorios</p>
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="row mb-4">
+                            <div class="col-sm-4 text-primary"><hr></div>
+                            <div class="col-sm-4 text-center text-primary"><h4>DATOS PERSONALES</h4></div>
+                            <div class="col-sm-4 text-primary"><hr></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <label for="name" class="form-label">Nombre <span class="text-danger bold">*</span></label>
+                                <input type="text" class="form-control shadow-sm" id="name" name="name" placeholder="Nombre" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <label for="first_surname" class="form-label">Primer apellido <span class="text-danger bold">*</span></label>
+                                <input type="text" class="form-control shadow-sm" id="first_surname" name="first_surname" placeholder="Primer apellido" required>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label for="second_surname" class="form-label">Segundo apellido <span class="text-danger bold">*</span></label>
+                                <input type="text" class="form-control shadow-sm" id="second_surname" name="second_surname" placeholder="Segundo Apellido" required>
+                            </div>
+                        </div>
+                        <div class="row mb-4 mt-4">
+                            <div class="col-sm-4 text-primary"><hr></div>
+                            <div class="col-sm-4 text-center text-primary"><h4>DATOS DE ACCESO</h4></div>
+                            <div class="col-sm-4 text-primary"><hr></div>
+                        </div>
+                        <div class="row">  
+                            <div class="col-sm-6 mb-3">
+                                <label for="email" class="form-label">Correo electrónico <span class="text-danger bold">*</span></label>
+                                <input type="email" class="form-control shadow-sm" id="email" name="email" placeholder="Correo electrónico" required>
+                            </div>
+                        </div>
+                        <div class="row">  
+                            <div class="col-sm-6 mb-3">
+                                <label for="password" class="form-label">Contraseña <span class="text-danger bold">*</span></label>
+                                <div class="input-group">
+                                    <input [type]="fieldPasswordType ? 'text' : 'password'" class="form-control shadow-sm" id="password" name="password" placeholder="Contraseña" required>
+                                    <div class="input-group-append shadow-sm">
+                                        <span class="input-group-text">
+                                        <i [ngClass]="{
+                                            'bi bi-eye-fill': !fieldPasswordType,
+                                            'bi bi-eye-slash-fill': fieldPasswordType
+                                            }"
+                                        (click)="togglefieldPasswordType()" id="show_eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 mb-3">
+                                <label for="repeatPassword" class="form-label">Repetir contraseña <span class="text-danger bold">*</span></label>
+                                <div class="input-group">
+                                    <input [type]="fieldRepeatPasswordType ? 'text' : 'password'" class="form-control shadow-sm" id="repeatPassword" name="repeatPassword" placeholder="Repetir contraseña" required>
+                                    <div class="input-group-append shadow-sm">
+                                        <span class="input-group-text">
+                                        <i [ngClass]="{
+                                            'bi bi-eye-fill': !fieldRepeatPasswordType,
+                                            'bi bi-eye-slash-fill': fieldRepeatPasswordType
+                                            }"
+                                        (click)="togglefieldRepeatPasswordType()" id="show_eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row mt-3 mb-3 form-check">
+                            <div class="col-sm-12">
+                                <input type="checkbox" class="form-check-input">
+                                <label class="form-check-label" for="conditions">He leído y acepto las Condiciones de uso y la Política de privacidad de UniversoAnimal. <span class="text-danger bold">*</span></label>
+                            </div>          
+                        </div>
+                        <div class="d-grid gap-2 col-4 mt-4 mb-4 mx-auto">
+                            <button type="submit" (click)="onSubmit()" class="btn btn-primary shadow" routerLink='/mi-cuenta'>REGISTRARSE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

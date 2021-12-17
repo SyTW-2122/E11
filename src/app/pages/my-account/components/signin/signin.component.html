@@ -3,15 +3,18 @@
         <h2 class="card-title text-center text-primary">Iniciar sesión</h2>
         <div class="text-primary"><hr></div>
         <p class="card-text">Inicia sesión para comprar productos en nuestra tienda online.</p>
-        <form (ngSubmit)="onSubmit()">
-            <div class="mb-3">
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control shadow-sm" name="email" id="email"  placeholder="daniel@example.com" [(ngModel)]="email" required>
+                <input type="email" formControlName="email" class="form-control shadow-sm" name="email" id="email" placeholder="daniel@example.com" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" required>
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">El correo electrónico es requerido</div>
+                </div>
             </div>
-            <div class="mb-3">
+            <div class="form-group mb-3">
                 <label for="password" class="form-label">Contraseña</label>
                 <div class="input-group">
-                    <input [type]="fieldPasswordType ? 'text' : 'password'" class="form-control shadow-sm" name="password" id="password" placeholder="Contraseña" [(ngModel)]="password" required>
+                    <input [type]="fieldPasswordType ? 'text' : 'password'" formControlName="password" class="form-control shadow-sm" name="password" id="password" placeholder="Contraseña" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" required>
                     <div class="input-group-append shadow-sm">
                         <span class="input-group-text">
                         <i [ngClass]="{
@@ -21,14 +24,21 @@
                         (click)="togglefieldPasswordType()" id="show_eye"></i>
                         </span>
                     </div>
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">La contraseña es requerida</div>
+                    </div>
                 </div>
             </div>
             <div class="mb-3 text-end text-muted">
                 <a routerlink="#" class="link-info">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="submit" (click)="onSubmit()" class="btn btn-primary shadow">INICIAR SESIÓN</button>
+                <button [disabled]="loading" type="submit" class="btn btn-primary shadow">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    INICIAR SESIÓN
+                </button>
             </div>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
         </form>
     </div>
 </div>

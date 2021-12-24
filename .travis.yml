@@ -17,7 +17,3 @@ script:
   - npm run build
   - xvfb-run npm run e2e
 
-notifications:
-  slack:
-    rooms:
-	  - sytwull:QulIpdrVpwLlrpofPV2WWk7u#e11

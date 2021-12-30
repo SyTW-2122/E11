@@ -1,20 +1,25 @@
 dist: focal
 
 language: node_js
+
 node_js:
-  - "16"
+- '16'
 
 addons:
   chrome: stable
 
 cache:
   directories:
-    - node_modules
-
+  - node_modules
+ 
 install:
-  - npm install
+- npm install
 
 script:
-  - npm run lint
-  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - npm run build
+- npm run lint
+- npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+- npm run build
+
+notifications:
+  slack:
+    secure: j2Cb/BxXVV6p8WF8dbWDqcltwPWNkvm4iGgnhWyDMa5kK1VLxaEbJxX+38j+FuUbKgGvX/t4QCBGDWsd9ZFXSEHd/zj72+hzrrUgfNqNyHCjq9AKcaxRsBqTSf2sOFlYW5QBle2zYw29Neclp3EmkZBx77lMBLIvuXUrEdEJKVTGZagLsvOdoQTD/lGm/zCA7jR44WLcMKpeSnmeTo+eilpSfcLwDRvK8FC7iHxFussmnDzko4xaA6Yq7ZhQac9aHVwzvLZBEGVvHYlz1Mxh2C/hK2x/gxdWd/hnShfXBxXOgkzXNB+oLR/GwxDBmHffK8rlFbEA27JSXxZUdxE4zCJGW4UraHvjFRbirvKo9LKLGVUxnTYkmwIaCN/K5Zfwhypv+s9UJTFffu4SRxtdIvi005XTrcxuZ95+jEGq92fQIeaQQuN/CYkKis1Qm3XAemHIGqQr7tV7APb4t8x97nkWAQCzyyVBqBc69lI4ved6eO4Qg658vllWp5h9DifDpxgfJA8x5GRUy8xUs7SqnRo9otKE3xx2ZDA9dyLZMFhO15WOzbQF1bqofOvwo2eSCKv3hG5Km/VVSiPGOjP546rR0QPY9ON9J/8cnOOZdnZn+jCdTquSDlQaiAlr3xswjzYmysccvqqAoIL3vXJZu8cDgnVtCRHyBe8eQZSOndI=

@@ -1,15 +1,9 @@
-dist: trusty
-sudo: false
-
 language: node_js
 node_js:
   - "16"
 
 addons:
   chrome: stable
-before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 cache:
   directories:
@@ -20,6 +14,5 @@ install:
 
 script:
   - npm run lint
-  - npm run test:headless
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run build
-
